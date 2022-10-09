@@ -1,0 +1,14 @@
+@import "variables";
+
+.hero {
+  font-family: $font-family-poppins;
+
+  h6 > span {
+    font-weight: 300;
+  }
+
+  .img-hero {
+    width: 520px;
+    height: 410.62px;
+  }
+}

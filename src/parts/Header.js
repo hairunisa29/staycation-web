@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <header className="spacing-sm">
       <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light">
+        <nav className="navbar navbar-expand-lg navbar-light px-0">
           <BrandIcon />
           <div className="collapse navbar-collapse justify-content-end">
             <ul className="navbar-nav">
