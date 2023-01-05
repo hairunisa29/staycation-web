@@ -14,7 +14,7 @@ const LandingPage = () => {
       <Hero refMostPicked={refMostPicked} data={landingPage.hero} />
       <MostPicked refMostPicked={refMostPicked} data={landingPage.mostPicked} />
       <Categories data={landingPage.categories} />
-      <Testimony />
+      <Testimony data={landingPage.testimonial} />
     </>
   );
 };
