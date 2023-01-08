@@ -4,7 +4,6 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
 @import "colorVariables";
 @import "functions";
 @import "variables";
@@ -44,7 +43,17 @@
 @import "utilities";
 @import "print";
 
-
 section {
-    margin-bottom: 70px;
+  margin-bottom: 70px;
+}
+
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins";
 }
