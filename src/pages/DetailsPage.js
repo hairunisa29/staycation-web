@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Header from "parts/Header";
 import PageDetailTitle from "parts/PageDetailTitle";
 import itemDetails from "json/itemDetails.json";
+import FeaturedImage from "parts/FeaturedImage";
 
 const DetailsPage = () => {
   const breadcrumb = [
@@ -18,6 +19,7 @@ const DetailsPage = () => {
     <>
       <Header />
       <PageDetailTitle breadcrumb={breadcrumb} data={itemDetails} />
+      <FeaturedImage data={itemDetails.imageUrls} />
     </>
   );
 };
