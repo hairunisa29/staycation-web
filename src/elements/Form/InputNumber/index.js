@@ -22,7 +22,7 @@ const Number = (props) => {
           value: +value,
         },
       });
-      setInputValue(`${prefix}${value}`);
+      setInputValue(`${prefix}${value}${suffix}`);
     }
   };
 
