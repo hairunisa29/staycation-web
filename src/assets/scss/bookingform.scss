@@ -1,0 +1,9 @@
+@import "variables";
+
+.card {
+    &.bordered {
+        border: 1px solid $gray-200;
+    }
+
+    border-radius: $border-radius;
+}

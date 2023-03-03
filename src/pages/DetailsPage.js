@@ -4,6 +4,7 @@ import PageDetailTitle from "parts/PageDetailTitle";
 import itemDetails from "json/itemDetails.json";
 import FeaturedImage from "parts/FeaturedImage";
 import PageDetailDescription from "parts/PageDetailDescription";
+import BookingForm from "parts/BookingForm";
 
 const DetailsPage = () => {
   const breadcrumb = [
@@ -27,7 +28,7 @@ const DetailsPage = () => {
             <PageDetailDescription data={itemDetails} />
           </div>
           <div className="col-5">
-            Booking Form
+            <BookingForm itemDetails={itemDetails} />
           </div>
         </div>
       </section>
