@@ -47,7 +47,6 @@ const BookingForm = (props) => {
     }
 
     if (prevDataRef?.duration !== data.duration) {
-      console.log('masuk')
       const startDate = new Date(data.date.startDate);
       const endDate = new Date(
         startDate.setDate(startDate.getDate() + data.duration - 1)
