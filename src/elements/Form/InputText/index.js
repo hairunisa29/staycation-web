@@ -22,8 +22,10 @@ export default function Text(props) {
 
   const onChange = (e) => {
     const target = {
-      name: name,
-      value: e.target.value,
+      target: {
+        name: name,
+        value: e.target.value,
+      },
     };
 
     if (type === "email") {
@@ -37,9 +39,9 @@ export default function Text(props) {
     if (type === "tel") {
       if (e.target.validity.valid) {
         props.onChange(target);
-      } else {
-        props.onChange(target);
       }
+    } else {
+      props.onChange(target);
     }
   };
 
