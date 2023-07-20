@@ -3,8 +3,10 @@ import propTypes from "prop-types";
 import Button from "elements/Button";
 import { InputDate, InputNumber } from "elements/Form";
 import "assets/scss/bookingform.scss";
+import useRegularHooks from "hooks/useRegularHooks";
 
 const BookingForm = (props) => {
+  const { dispatch, navigate } = useRegularHooks();
   const { itemDetails, startBooking } = props;
 
   const initialState = {
@@ -18,21 +20,33 @@ const BookingForm = (props) => {
 
   const [data, setData] = useState(initialState);
 
-
   const updateData = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
   function usePrevious(value) {
-    const ref = useRef()
+    const ref = useRef();
     useEffect(() => {
-      ref.current = value
-    }, [value])
+      ref.current = value;
+    }, [value]);
 
-    return ref.current
+    return ref.current;
   }
 
-  const prevDataRef = usePrevious(data)
+  const prevDataRef = usePrevious(data);
+
+  const onClickBooking = () => {
+    const payload = {
+      _id: itemDetails._id,
+      duration: data.duration,
+      date: {
+        startDate: data.date.startDate,
+        endDate: data.date.endDate,
+      },
+    };
+    dispatch(startBooking(payload));
+    navigate("/checkout");
+  };
 
   useEffect(() => {
     if (prevDataRef?.date !== data.date) {
@@ -60,8 +74,6 @@ const BookingForm = (props) => {
         },
       });
     }
-
-    
   }, [data]);
 
   // useEffect(() => {
@@ -124,7 +136,7 @@ const BookingForm = (props) => {
         hasShadow
         isPrimary
         isBlock
-        // onClick={startBooking}
+        onClick={onClickBooking}
       >
         Continue to Book
       </Button>

@@ -9,6 +9,7 @@ import BookingForm from "parts/BookingForm";
 import Categories from "parts/Categories";
 import Testimony from "parts/Testimony";
 import Footer from "parts/Footer";
+import { checkoutBooking } from "store/actions/checkoutAction";
 
 const DetailsPage = () => {
   const breadcrumb = [
@@ -35,7 +36,10 @@ const DetailsPage = () => {
           </div>
           <div className="col-5">
             <Fade bottom>
-              <BookingForm itemDetails={itemDetails} />
+              <BookingForm
+                itemDetails={itemDetails}
+                startBooking={checkoutBooking}
+              />
             </Fade>
           </div>
         </div>

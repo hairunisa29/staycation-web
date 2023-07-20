@@ -12,6 +12,7 @@ import BookingInformation from "parts/Checkout/BookingInformation";
 import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
 import ItemDetails from "json/itemDetails.json";
+import useRegularHooks from "hooks/useRegularHooks";
 
 const Checkout = () => {
   const initialState = {
@@ -24,7 +25,11 @@ const Checkout = () => {
     bankHolder: "",
   };
 
+  const { reduxState } = useRegularHooks();
+
   const [data, setData] = useState(initialState);
+
+  const checkout = reduxState.checkout.dataCheckout;
 
   const onChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -33,10 +38,6 @@ const Checkout = () => {
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
-
-  const checkout = {
-    duration: 3,
-  };
 
   const steps = {
     bookingInformation: {
