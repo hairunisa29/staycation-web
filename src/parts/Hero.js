@@ -45,34 +45,34 @@ const Hero = (props) => {
               <div className="col-auto">
                 <img
                   src={IconTraveler}
-                  alt={`${props.data.travelers} travelers`}
+                  alt={`${props?.data?.travelers} travelers`}
                   width="35"
                   height="35"
                 />
                 <h6 className="mt-3">
-                  {formatNumber(props.data.travelers)} <span>Travelers</span>
+                  {formatNumber(props?.data?.travelers)} <span>Travelers</span>
                 </h6>
               </div>
               <div className="col-auto">
                 <img
                   src={IconTreasure}
-                  alt={`${props.data.treasures} treasures`}
+                  alt={`${props?.data?.treasures} treasures`}
                   width="35"
                   height="35"
                 />
                 <h6 className="mt-3">
-                  {formatNumber(props.data.treasures)} <span>Treasures</span>
+                  {formatNumber(props?.data?.treasures)} <span>Treasures</span>
                 </h6>
               </div>
               <div className="col-auto">
                 <img
                   src={IconCities}
-                  alt={`${props.data.cities} cities`}
+                  alt={`${props?.data?.cities} cities`}
                   width="36"
                   height="36"
                 />
                 <h6 className="mt-3">
-                  {formatNumber(props.data.cities)} <span>Cities</span>
+                  {formatNumber(props?.data?.cities)} <span>Cities</span>
                 </h6>
               </div>
             </div>
