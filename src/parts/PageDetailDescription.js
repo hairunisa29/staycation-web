@@ -6,16 +6,16 @@ const PageDetailDescription = ({ data }) => {
   return (
     <main>
       <h4>About the place</h4>
-      {ReactHtmlParser(data.description)}
+      {ReactHtmlParser(data?.description)}
       <div className="row" style={{ marginTop: 30 }}>
-        {data.features.map((feature, index) => (
+        {data?.featureId.map((feature, index) => (
           <div
             key={`feature-${index}`}
             className="col-3"
             style={{ marginBottom: 20 }}
           >
             <img
-              src={feature.imageUrl}
+              src={`${process.env.REACT_APP_BACKEND_HOST}/${feature.imageUrl}`}
               alt={feature.name}
               className="d-block mb-2"
               width={38}

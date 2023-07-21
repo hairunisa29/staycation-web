@@ -11,9 +11,9 @@ const PageDetailTitle = ({ data, breadcrumb }) => {
             <Breadcrumb data={breadcrumb} />
           </div>
           <div className="col-auto text-center">
-            <hl className="h2">{data.name}</hl>
+            <h1 className="h2">{data?.title}</h1>
             <p className="text-gray-400">
-              {data.city}, {data.country}
+              {data?.city}, {data?.country}
             </p>
           </div>
           <div className="col"></div>

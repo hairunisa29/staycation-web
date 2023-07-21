@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 import Header from "parts/Header";
-// import landingPage from "json/landingPage.json";
 import Hero from "parts/Hero";
 import MostPicked from "parts/MostPicked";
 import Categories from "parts/Categories";
@@ -31,20 +30,17 @@ const LandingPage = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    if (!landingPage) {
+      fetchData();
+    }
   }, []);
 
   return (
     <>
       <Header />
       {loading ? (
-        <div className="d-flex justify-content-center">
-          <ReactLoading
-            type="spin"
-            color="#bbc1c9"
-            height={45}
-            width={45}
-          />
+        <div className="d-flex justify-content-center mb-2">
+          <ReactLoading type="spin" color="#bbc1c9" height={45} width={45} />
         </div>
       ) : (
         <>

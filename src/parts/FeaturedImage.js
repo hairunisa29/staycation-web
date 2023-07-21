@@ -5,7 +5,7 @@ const FeaturedImage = ({ data }) => {
   return (
     <section className="container">
       <div className="container-grid sm">
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <div
             key={`FeaturedImage-${index}`}
             className={`item ${index > 0 ? "column-5" : "column-7"} ${
@@ -15,7 +15,7 @@ const FeaturedImage = ({ data }) => {
             <Fade bottom delay={300 * index}>
               <div className="card h-100">
                 <figure className="img-wrapper">
-                  <img src={item.url} alt={item._id} className="img-cover" />
+                  <img src={`${process.env.REACT_APP_BACKEND_HOST}/${item.imageUrl}`} alt={item._id} className="img-cover" />
                 </figure>
               </div>
             </Fade>

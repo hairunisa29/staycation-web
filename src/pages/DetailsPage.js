@@ -1,15 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Fade from "react-reveal/Fade";
+import { useParams } from "react-router-dom";
 import Header from "parts/Header";
 import PageDetailTitle from "parts/PageDetailTitle";
-import itemDetails from "json/itemDetails.json";
 import FeaturedImage from "parts/FeaturedImage";
 import PageDetailDescription from "parts/PageDetailDescription";
 import BookingForm from "parts/BookingForm";
-import Categories from "parts/Categories";
+import Activities from "parts/Activities";
 import Testimony from "parts/Testimony";
 import Footer from "parts/Footer";
+import useRegularHooks from "hooks/useRegularHooks";
 import { checkoutBooking } from "store/actions/checkoutAction";
+import { fetchPage } from "store/actions/pageAction";
+import ReactLoading from "react-loading";
 
 const DetailsPage = () => {
   const breadcrumb = [
@@ -17,35 +20,67 @@ const DetailsPage = () => {
     { pageTitle: "House Details", pageHref: "" },
   ];
 
-  useEffect(() => {
-    window.title = "Details Page";
+  const { dispatch, reduxState } = useRegularHooks();
+  const [loading, setLoading] = useState(false);
+  const { id } = useParams();
+
+  const itemDetails = reduxState.page[id] ?? null;
+
+  const fetchData = async () => {
+    setLoading(true);
+    document.title = "Staycation | Details Page";
     window.scrollTo(0, 0);
-  }, []);
+    await dispatch(
+      fetchPage(
+        `${process.env.REACT_APP_BACKEND_HOST}/api/v1/member/detail-page/${id}`,
+        id
+      )
+    );
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    if (!id) {
+      return;
+    }
+
+    if (!itemDetails) {
+      fetchData();
+    }
+  }, [id]);
 
   return (
     <>
       <Header />
-      <PageDetailTitle breadcrumb={breadcrumb} data={itemDetails} />
-      <FeaturedImage data={itemDetails.imageUrls} />
-      <section className="container">
-        <div className="row">
-          <div className="col-7 pr-5">
-            <Fade bottom>
-              <PageDetailDescription data={itemDetails} />
-            </Fade>
-          </div>
-          <div className="col-5">
-            <Fade bottom>
-              <BookingForm
-                itemDetails={itemDetails}
-                startBooking={checkoutBooking}
-              />
-            </Fade>
-          </div>
+      {loading ? (
+        <div className="d-flex justify-content-center mb-2">
+          <ReactLoading type="spin" color="#bbc1c9" height={45} width={45} />
         </div>
-      </section>
-      <Categories data={itemDetails.categories} />
-      <Testimony data={itemDetails.testimonial} />
+      ) : (
+        <>
+          <PageDetailTitle breadcrumb={breadcrumb} data={itemDetails} />
+          <FeaturedImage data={itemDetails?.imageId} />
+          <section className="container">
+            <div className="row">
+              <div className="col-7 pr-5">
+                <Fade bottom>
+                  <PageDetailDescription data={itemDetails} />
+                </Fade>
+              </div>
+              <div className="col-5">
+                <Fade bottom>
+                  <BookingForm
+                    itemDetails={itemDetails}
+                    startBooking={checkoutBooking}
+                  />
+                </Fade>
+              </div>
+            </div>
+          </section>
+          <Activities data={itemDetails?.activityId} />
+          <Testimony data={itemDetails?.testimonial} />
+        </>
+      )}
 
       <Footer />
     </>

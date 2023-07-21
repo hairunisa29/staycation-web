@@ -98,9 +98,9 @@ const BookingForm = (props) => {
     <div className="card bordered" style={{ padding: "60px 80px" }}>
       <h4 className="mb-3">Start Booking</h4>
       <h5 className="h2 text-teal mb-4">
-        ${itemDetails.price}{" "}
+        ${itemDetails?.price}{" "}
         <span className="text-gray-500 font-weight-light">
-          per {itemDetails.unit}
+          per {itemDetails?.unit}
         </span>
       </h5>
 
@@ -123,11 +123,11 @@ const BookingForm = (props) => {
       >
         You will pay{" "}
         <span className="text-gray-900 font-weight-normal">
-          ${itemDetails.price * data.duration} USD
+          ${itemDetails?.price * data.duration} USD
         </span>{" "}
         per{" "}
         <span className="text-gray-900 font-weight-normal">
-          {data.duration} {itemDetails.unit}
+          {data.duration} {itemDetails?.unit}
         </span>
       </h6>
 
