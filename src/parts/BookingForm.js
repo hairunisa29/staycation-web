@@ -76,24 +76,6 @@ const BookingForm = (props) => {
     }
   }, [data]);
 
-  // useEffect(() => {
-  //   if (prevDataRef?.duration !== data.duration) {
-  //     console.log('masuk')
-  //     const startDate = new Date(data.date.startDate);
-  //     const endDate = new Date(
-  //       startDate.setDate(startDate.getDate() + data.duration - 1)
-  //     );
-
-  //     setData({
-  //       ...data,
-  //       date: {
-  //         ...data.date,
-  //         endDate: endDate,
-  //       },
-  //     });
-  //   }
-  // }, [data.duration]);
-
   return (
     <div className="card bordered" style={{ padding: "60px 80px" }}>
       <h4 className="mb-3">Start Booking</h4>

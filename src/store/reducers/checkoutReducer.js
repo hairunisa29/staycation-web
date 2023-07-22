@@ -1,7 +1,7 @@
 import { CHECKOUT_BOOKING } from "store/types";
 
 const initialState = {
-  dataCheckout: {},
+  dataCheckout: null,
 };
 
 const checkoutReducer = (state = initialState, action) => {

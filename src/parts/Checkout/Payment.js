@@ -7,7 +7,7 @@ import LogoMandiri from "assets/images/logo-mandiri.png";
 export default function Payment(props) {
   const { data, itemDetails, checkout } = props;
   const tax = 10;
-  const subTotal = itemDetails.price * checkout.duration;
+  const subTotal = itemDetails?.price * checkout.duration;
   const grandTotal = (subTotal * tax) / 100 + subTotal;
 
   return (
