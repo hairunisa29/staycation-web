@@ -20,12 +20,7 @@ const LandingPage = () => {
     setLoading(true);
     document.title = "Staycation | Home";
     window.scrollTo(0, 0);
-    await dispatch(
-      fetchPage(
-        `${process.env.REACT_APP_BACKEND_HOST}/api/v1/member/landing-page`,
-        "landingPage"
-      )
-    );
+    await dispatch(fetchPage("/landing-page", "landingPage"));
     setLoading(false);
   };
 

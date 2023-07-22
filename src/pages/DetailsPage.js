@@ -30,12 +30,7 @@ const DetailsPage = () => {
     setLoading(true);
     document.title = "Staycation | Details Page";
     window.scrollTo(0, 0);
-    await dispatch(
-      fetchPage(
-        `${process.env.REACT_APP_BACKEND_HOST}/api/v1/member/detail-page/${id}`,
-        id
-      )
-    );
+    await dispatch(fetchPage(`/detail-page/${id}`, id));
     setLoading(false);
   };
 
