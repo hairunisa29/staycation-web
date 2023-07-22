@@ -67,7 +67,7 @@ const DetailsPage = () => {
                   <PageDetailDescription data={itemDetails} />
                 </Fade>
               </div>
-              <div className="col-5">
+              <div className="col-5" style={{ zIndex: 5 }}>
                 <Fade bottom>
                   <BookingForm
                     itemDetails={itemDetails}
