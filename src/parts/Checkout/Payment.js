@@ -20,30 +20,25 @@ export default function Payment(props) {
               <p>Tax: {tax}%</p>
               <p>Sub total: ${subTotal} USD</p>
               <p>Total: ${grandTotal} USD</p>
-              <div className="row mt-4">
-                <div className="col-3 text-right">
-                  <img src={LogoBca} alt="bank central asia" width="60" />
+
+              {itemDetails?.bank?.map((item) => (
+                <div className="row mt-4">
+                  <div className="col-3 text-right">
+                    <img
+                      src={`${process.env.REACT_APP_BACKEND_HOST}/${item.imageUrl}`}
+                      alt={item.nameBank}
+                      width="60"
+                    />
+                  </div>
+                  <div className="col">
+                    <dl>
+                      <dd>{item.nameBank}</dd>
+                      <dd>{item.nomorRekening}</dd>
+                      <dd>{item.name}</dd>
+                    </dl>
+                  </div>
                 </div>
-                <div className="col">
-                  <dl>
-                    <dd>Bank Central Asia</dd>
-                    <dd>2208 1996</dd>
-                    <dd>BuildWith Angga</dd>
-                  </dl>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-3 text-right">
-                  <img src={LogoMandiri} alt="mandiri" width="60" />
-                </div>
-                <div className="col">
-                  <dl>
-                    <dd>Bank Mandiri</dd>
-                    <dd>2208 1996</dd>
-                    <dd>BuildWith Angga</dd>
-                  </dl>
-                </div>
-              </div>
+              ))}
             </Fade>
           </div>
           <div className="col-5 py-5" style={{ paddingLeft: 80 }}>
