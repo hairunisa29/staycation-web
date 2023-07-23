@@ -78,7 +78,7 @@ const Hero = (props) => {
             </div>
           </div>
 
-          <div className="col pl-5">
+          <div className="col pl-6">
             <div className="img-hero">
               <img
                 src={ImageHero}

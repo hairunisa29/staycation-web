@@ -3,6 +3,17 @@
 .hero {
   font-family: $font-family-poppins;
 
+  @media screen and (max-width: 576px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .img-hero {
+      width: 100%;
+      margin-top: 80px;
+    }
+  }
+
   h6 > span {
     font-weight: 300;
   }
