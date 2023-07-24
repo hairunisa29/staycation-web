@@ -28,9 +28,10 @@ const DetailsPage = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    document.title = "Staycation | Details Page";
     window.scrollTo(0, 0);
-    await dispatch(fetchPage(`/detail-page/${id}`, id));
+    await dispatch(fetchPage(`/detail-page/${id}`, id)).then((res) => {
+      document.title = `Staycation | ${res?.title}`;
+    });
     setLoading(false);
   };
 
