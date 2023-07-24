@@ -57,12 +57,12 @@ const DetailsPage = () => {
           <FeaturedImage data={itemDetails?.imageId} />
           <section className="container">
             <div className="row">
-              <div className="col-7 pr-5">
+              <div className="col-12 col-lg-7 pr-5">
                 <Fade bottom>
                   <PageDetailDescription data={itemDetails} />
                 </Fade>
               </div>
-              <div className="col-5" style={{ zIndex: 5 }}>
+              <div className="col-12 col-lg-5" style={{ zIndex: 5 }}>
                 <Fade bottom>
                   <BookingForm
                     itemDetails={itemDetails}

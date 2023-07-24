@@ -1,15 +1,20 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
+import { useMediaQuery } from "react-responsive";
 import Button from "elements/Button";
 
 const Activities = ({ data }) => {
+  const isMobile = useMediaQuery({ maxWidth: 576 });
   return (
     <section className="container">
       <Fade bottom>
         <h4 className="mb-3 font-weight-medium">Treasure to Choose</h4>
         <div className="container-grid">
           {data?.map((activity, index) => (
-            <div className="item column-3 row-1" key={`activity-${index}`}>
+            <div
+              className={`item ${isMobile ? "column-12" : "column-3"} row-1`}
+              key={`activity-${index}`}
+            >
               <Fade bottom delay={300 * index}>
                 <div className="card">
                   {activity.isPopular && (
