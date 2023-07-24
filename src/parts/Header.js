@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Fade from "react-reveal/Fade";
 import Button from "elements/Button";
 import BrandIcon from "parts/IconText";
@@ -9,17 +9,15 @@ const Header = (props) => {
     return window.location.pathname === path ? " active" : "";
   };
 
+  const [isActive, setIsActive] = useState(false);
+
   if (props.isCentered) {
     return (
       <Fade>
         <header className="spacing-sm">
           <div className="container">
             <nav className="navbar navbar-expand-lg navbar-light">
-              <Button
-                className="brand-text-icon mx-auto"
-                href=""
-                type="link"
-              >
+              <Button className="brand-text-icon mx-auto" href="" type="link">
                 Stay<span className="text-gray-900">cation.</span>
               </Button>
             </nav>
@@ -35,8 +33,17 @@ const Header = (props) => {
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light px-0">
             <BrandIcon />
-            <div className="collapse navbar-collapse justify-content-end">
-              <ul className="navbar-nav">
+            <button
+              class="navbar-toggler"
+              type="button"
+              onClick={() => setIsActive(!isActive)}
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              className={`collapse navbar-collapse ${isActive ? "show" : ""}`}
+            >
+              <ul className="navbar-nav ml-auto">
                 <li className={`nav-item${getNavLinkClass("/")}`}>
                   <Button className="nav-link" type="link" href="/">
                     Home
