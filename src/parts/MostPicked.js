@@ -1,9 +1,11 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
+import { useMediaQuery } from "react-responsive";
 import "assets/scss/mostpicked.scss";
 import Button from "elements/Button";
 
 const MostPicked = (props) => {
+  const isMobile = useMediaQuery({ maxWidth: 576 });
   return (
     <section className="container" ref={props.refMostPicked}>
       <Fade bottom>
@@ -13,7 +15,9 @@ const MostPicked = (props) => {
             return (
               <div
                 key={`mostpicked-${index}`}
-                className={`item column-4 ${index === 0 ? "row-2" : "row-1"}`}
+                className={`item ${isMobile ? "column-12" : "column-4"} ${
+                  index === 0 ? "row-2" : "row-1"
+                }`}
               >
                 <Fade bottom delay={500 * index}>
                   <div className="card card-featured">

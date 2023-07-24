@@ -90,17 +90,17 @@
     }
 
     &:hover {
-        .meta-wrapper {
-            transform: translateY(-10px);
-        }
+      .meta-wrapper {
+        transform: translateY(-10px);
+      }
 
-        &:after {
-            transform: scale(1);
-        }
+      &:after {
+        transform: scale(1);
+      }
 
-        .img-wrapper {
-            transform: scale(1);
-        }
+      .img-wrapper {
+        transform: scale(1);
+      }
     }
   }
 }

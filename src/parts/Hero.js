@@ -21,7 +21,7 @@ const Hero = (props) => {
     <Fade bottom>
       <section className="container hero pt-4">
         <div className="row align-items-center">
-          <div className="col pr-5">
+          <div className="col-lg-6 col-sm-12 pr-5">
             <h1 className="font-weight-bold mb-3">
               Forget Busy Work, <br />
               Start Next Vacation
@@ -42,7 +42,7 @@ const Hero = (props) => {
               Show Me Now
             </Button>
             <div className="row" style={{ marginTop: "80px" }}>
-              <div className="col-auto">
+              <div className="col">
                 <img
                   src={IconTraveler}
                   alt={`${props?.data?.travelers} travelers`}
@@ -53,7 +53,7 @@ const Hero = (props) => {
                   {formatNumber(props?.data?.travelers)} <span>Travelers</span>
                 </h6>
               </div>
-              <div className="col-auto">
+              <div className="col">
                 <img
                   src={IconTreasure}
                   alt={`${props?.data?.treasures} treasures`}
@@ -64,7 +64,7 @@ const Hero = (props) => {
                   {formatNumber(props?.data?.treasures)} <span>Treasures</span>
                 </h6>
               </div>
-              <div className="col-auto">
+              <div className="col">
                 <img
                   src={IconCities}
                   alt={`${props?.data?.cities} cities`}
@@ -78,7 +78,7 @@ const Hero = (props) => {
             </div>
           </div>
 
-          <div className="col pl-6">
+          <div className="col-lg-6 col-sm-12 pl-6">
             <div className="img-hero">
               <img
                 src={ImageHero}
