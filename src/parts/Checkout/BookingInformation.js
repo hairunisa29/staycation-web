@@ -1,11 +1,9 @@
 import React from "react";
 import { Fade } from "react-reveal";
-import { useMediaQuery } from "react-responsive";
 import { InputText } from "elements/Form";
 
 export default function BookingInformation(props) {
   const { data, itemDetails, checkout } = props;
-  const isMobile = useMediaQuery({ maxWidth: 576 });
 
   return (
     <Fade>
