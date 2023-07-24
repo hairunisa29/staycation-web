@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Fade } from "react-reveal";
+import ReactLoading from "react-loading";
 import Header from "parts/Header";
 import Button from "elements/Button";
 import Stepper, {
@@ -11,7 +12,6 @@ import Stepper, {
 import BookingInformation from "parts/Checkout/BookingInformation";
 import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
-// import itemDetails from "json/itemDetails.json";
 import useRegularHooks from "hooks/useRegularHooks";
 import { submitBooking } from "store/actions/checkoutAction";
 
@@ -29,6 +29,7 @@ const Checkout = () => {
   const { navigate, reduxState } = useRegularHooks();
 
   const [data, setData] = useState(initialState);
+  const [loading, setLoading] = useState(false);
 
   const checkout = reduxState.checkout.dataCheckout;
   const itemDetails = reduxState.page[checkout?._id] ?? null;
@@ -51,9 +52,11 @@ const Checkout = () => {
     payload.append("bankFrom", data.bankName);
     payload.append("image", data.proofPayment[0]);
 
+    setLoading(true);
     await submitBooking(payload).then(() => {
       nextStep();
     });
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -167,14 +170,18 @@ const Checkout = () => {
                     data.bankHolder !== "" && (
                       <Fade>
                         <Button
-                          className="btn mb-3"
+                          className="btn d-flex justify-content-center mb-3"
                           type="button"
                           isBlock
                           isPrimary
                           hasShadow
                           onClick={() => onSubmit(nextStep)}
                         >
-                          Continue to Book
+                          {loading ? (
+                            <ReactLoading type="spin" color="#bbc1c9" width={20} height={20} />
+                          ) : (
+                            "Continue to Book"
+                          )}
                         </Button>
                       </Fade>
                     )}
